@@ -2,7 +2,19 @@
 
 This repository contains a python toolbox to load, parse and process Official Journals of the European Union (EU).
 
-## Overview
+## Common Foreign and Security Policy (CFSP) Dataset
+
+:arrow_double_down: Download the dataset [here](https://drive.google.com/open?id=15zFcs7pmgmskS3Yn-FsijI-NuAHZNF5o).
+
+Our current focus was on Common Foreign and Security Policy (CFSP) documents. For this reason, all CFSP journals published between December 2009 and June 2019 have already been processed and are publicly available for download from the link above.
+
+The dataset is constituted by 1285 documents totalling approximately 1 million words.
+
+To ease the inspection and analysis to non-programmers people, they are already distributed in two ways:
+* All documents concatenated in a unique text file (`all_txt.txt`).
+* Grouped by year (`all_txt_YYYY.txt`).
+
+## Software Overview
 
 European Union law documents are publicly available in human-readable format in the [EUR-Lex portal](https://eur-lex.europa.eu/homepage.html). To enable automatic analysis, the same documents are released as structured text in the [EU Open Data Portal](https://data.europa.eu/euodp/en/home). Options for bulk download of entire blocks of documents are available there.
 
