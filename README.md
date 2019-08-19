@@ -40,7 +40,7 @@ dataset.dump_to_txt('all_txt.txt', mode='text')
 # Dump all document headers
 dataset.dump_to_txt('stats.csv', mode='headers')
 ```
-To save time, the `EurLexDataset` object can also be initialized form a text file containing a list of paths pointing to the docs to be loaded (see [here]()).
+To save time, the `EurLexDataset` object can also be initialized form a text file containing a list of paths pointing to the docs to be loaded (see [here](https://github.com/anonymous-eurlex/eurlex-cfsp/blob/2bc7163c6aebe33fb5de73ddb4ea1df14226f8fa/eurlex_ds.py#L163-L174)).
 
 ## Advanced features
 The `EurLexDataset` object encapsulates the official journals dataset and it can be used to perform more sophisticated analyses and queries. Few examples:
