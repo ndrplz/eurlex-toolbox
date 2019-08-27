@@ -2,11 +2,26 @@
 
 This repository contains a python toolbox to load, parse and process Official Journals of the European Union (EU).
 
+## EU Law text corpus
+
+:arrow_double_down: Download the dataset [here](https://drive.google.com/open?id=15zFcs7pmgmskS3Yn-FsijI-NuAHZNF5o).
+
+Text corpus containing all the legal acts (the L series of the Official Journal) of the European Union adopted since the entry into force of the Lisbon Treaty, 1st December 2009, until 30th June 2019.
+
+**The resulting corpus contains 24134 documents totalling approximately 43 million words.**
+
+We present it divided in three files. 
+
+* **Legislation** contains the legal acts the Union can adopt to exercise its competences (those listed under Article 288 Treaty on the Functioning of the European Union): regulations, directives, decisions, recommendations and opinions. It also contains the EU acts implementing them.
+* **International Agreements and EEA acts** contains, in addition to Treaties concluded by the European Union, texts with EEA relevance.
+* **Other** contains guidelines, interinstitutional agreements, notices, procedural rules, etc.
+
 ## Software Overview
 
 European Union law documents are publicly available in human-readable format in the [EUR-Lex portal](https://eur-lex.europa.eu/homepage.html). To enable automatic analysis, the same documents are released as structured text in the [EU Open Data Portal](https://data.europa.eu/euodp/en/home). Options for bulk download of entire blocks of documents are available there.
 
 This software allows to handle the Official Journals of the EU as they are released in XML-Formex format [here](https://data.europa.eu/euodp/en/data/dataset/official-journals-of-the-european-union-in-english).
+
 ## Data preparation
 To maximize reproducibility and ease of use, the download and decompression of XML data from [here](https://data.europa.eu/euodp/en/data/dataset/official-journals-of-the-european-union-in-english) is automatized thanks to the `download_and_unzip.py` script. Usage:
 ```bash
