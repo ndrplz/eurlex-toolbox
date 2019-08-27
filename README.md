@@ -6,9 +6,9 @@ This repository contains a python toolbox to load, parse and process Official Jo
 
 European Union law documents are publicly available in human-readable format in the [EUR-Lex portal](https://eur-lex.europa.eu/homepage.html). To enable automatic analysis, the same documents are released as structured text in the [EU Open Data Portal](https://data.europa.eu/euodp/en/home). Options for bulk download of entire blocks of documents are available there.
 
-This software allows to handle the Official Journals of the EU as they are released in XML-Formex format [here](https://data.europa.eu/euodp/it/data/dataset/official-journals-of-the-european-union-in-english).
+This software allows to handle the Official Journals of the EU as they are released in XML-Formex format [here](https://data.europa.eu/euodp/en/data/dataset/official-journals-of-the-european-union-in-english).
 ## Data preparation
-To maximize reproducibility and ease of use, the download and decompression of XML data from [here](https://data.europa.eu/euodp/it/data/dataset/official-journals-of-the-european-union-in-english) is automatized thanks to the `download_and_unzip.py` script. Usage:
+To maximize reproducibility and ease of use, the download and decompression of XML data from [here](https://data.europa.eu/euodp/en/data/dataset/official-journals-of-the-european-union-in-english) is automatized thanks to the `download_and_unzip.py` script. Usage:
 ```bash
 python download_and_unzip.py <dataset_root> <language>
 ```
