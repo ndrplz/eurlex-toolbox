@@ -2,36 +2,28 @@
 
 This repository contains a python toolbox to load, parse and process Official Journals of the European Union (EU).
 
-## Common Foreign and Security Policy (CFSP) Dataset
-
-:arrow_double_down: Download the dataset [here](https://drive.google.com/open?id=15zFcs7pmgmskS3Yn-FsijI-NuAHZNF5o).
-
-Our current focus was on Common Foreign and Security Policy (CFSP) documents. For this reason, all CFSP journals published between December 2009 and June 2019 have already been processed and are publicly available for download from the link above.
-
-The dataset is constituted by 1285 documents totalling approximately 1 million words.
-
-To ease the inspection and analysis to non-programmers people, they are already distributed in two ways:
-* All documents concatenated in a unique text file (`all_txt.txt`).
-* Grouped by year (`all_txt_YYYY.txt`).
-
 ## Software Overview
 
 European Union law documents are publicly available in human-readable format in the [EUR-Lex portal](https://eur-lex.europa.eu/homepage.html). To enable automatic analysis, the same documents are released as structured text in the [EU Open Data Portal](https://data.europa.eu/euodp/en/home). Options for bulk download of entire blocks of documents are available there.
 
 This software allows to handle the Official Journals of the EU as they are released in XML-Formex format [here](https://data.europa.eu/euodp/it/data/dataset/official-journals-of-the-european-union-in-english).
-
 ## Data preparation
+To maximize reproducibility and ease of use, the download and decompression of XML data from [here](https://data.europa.eu/euodp/it/data/dataset/official-journals-of-the-european-union-in-english) is automatized thanks to the `download_and_unzip.py` script. Usage:
+```bash
+python download_and_unzip.py <dataset_root> <language>
+```
+![download_en](./img/download_en.gif)
 
-The software assumes that the dataset of official journals has already been downloaded (from [here](https://data.europa.eu/euodp/it/data/dataset/official-journals-of-the-european-union-in-english)) and uncompressed in a directory `<eurlex_root>`. The expected directory hierarchy should be the following:
+Once the `download_and_unzip` script has finished, the expected directory structure should look like the following:
 ```bash
 <eurlex_root>/
-  ├── JOx_FMX_EN_2009/
+  ├── JOx_FMX_EN_2004/
     ├── file0.doc.xml
     ├── file0.xml
     ├── ...
     ├── fileN.doc.xml
     └── fileN.xml
-  ├── JOx_FMX_EN_2010/
+  ├── JOx_FMX_EN_2005/
       ├── ...
   ├── ...
   └── JOx_FMX_EN_2019/
@@ -39,7 +31,9 @@ The software assumes that the dataset of official journals has already been down
 ```
 
 ## Hello World!
-Once the dataset is in place, all documents can be dumped in human readable format with few lines of code.
+Once the raw XML data are in place, the toolbox (entry point `main.py`) can be used to manipulate the data and create huamn readable text corpora. 
+
+Documents can be dumped in human readable format in few lines of code.
 ```python
 from eurlex_ds import EurLexDataset
 
@@ -52,7 +46,7 @@ dataset.dump_to_txt('all_txt.txt', mode='text')
 # Dump all document headers
 dataset.dump_to_txt('stats.csv', mode='headers')
 ```
-To save time, the `EurLexDataset` object can also be initialized form a text file containing a list of paths pointing to the docs to be loaded (see [here](https://github.com/anonymous-eurlex/eurlex-cfsp/blob/2bc7163c6aebe33fb5de73ddb4ea1df14226f8fa/eurlex_ds.py#L163-L174)).
+NB: To save time, the `EurLexDataset` object can also be initialized form a text file containing a list of paths pointing to the docs to be loaded (see [here](https://github.com/ndrplz/eurlex/blob/71cb848e3777fd42797d1863b4d0363f99272cfd/eurlex_ds.py#L164-L174)). This avoids listing all file on disk every time.
 
 ## Advanced features
 The `EurLexDataset` object encapsulates the official journals dataset and it can be used to perform more sophisticated analyses and queries. Few examples:
@@ -69,12 +63,12 @@ for year in range(2009, 2020):
   Path(f'all_txt_{year}.txt').write_text(year_all_txt, encoding='utf-8')
 ```
 
-* Filter the dataset keeping only CFSP documents (which was our initial focus):
+* Filter the dataset keeping only decisions:
 ```python
 from eurlex_ds import EurLexDataset
 
 dataset = EurLexDataset(data_root=args.data_root)
-dataset.items[:] = [it for it in dataset if it.is_cfsp()]
+dataset.items[:] = [it for it in dataset if it.meta.is_dec()]
 ```
 
 * Print legal value and title of all documents to console:
