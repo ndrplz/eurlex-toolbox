@@ -1,10 +1,10 @@
-# eurlex
+# Eurlex-Toolbox
 
 This repository contains a python toolbox to load, parse and process Official Journals of the European Union (EU).
 
 ## EU Law text corpus
 
-:arrow_double_down: Download the dataset [here](https://drive.google.com/open?id=15zFcs7pmgmskS3Yn-FsijI-NuAHZNF5o).
+:arrow_double_down: Download the dataset [here](https://drive.google.com/open?id=15XKFh69Fsy907D9tcs9qcniGrsTRQPxk).
 
 Text corpus containing all the legal acts (the L series of the Official Journal) of the European Union adopted since the entry into force of the Lisbon Treaty, 1st December 2009, until 30th June 2019.
 
@@ -104,4 +104,4 @@ The code contained this repository accompanies the following publication:
 
 > Palazzi, Andrea and Luigi Lonardo. "A Dataset, Software Toolbox, and Interdisciplinary Research Agenda for the Common Foreign and Security Policy", to appear in the European Foreign Affairs Review Vol. 25, Issue 2 (July 2020).
 
-In case you find this dataset and toolbox helpful for your research (we hope so!), please mention the above paper.
+In case you find this dataset and toolbox helpful for your research (we hope so!), please mention the paper above.
