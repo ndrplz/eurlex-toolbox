@@ -97,3 +97,11 @@ for item in dataset:
 etc.
 
 Many other features are already available, but still undocumented since we are still working on them and the API might change a lot. These includes tokenization, extraction of geographical entities etc. However, the code is open source, so feel free to explore it and take what you may find useful :)
+
+## Citation
+
+The code contained this repository accompanies the following publication:
+
+> Palazzi, Andrea and Luigi Lonardo. "A Dataset, Software Toolbox, and Interdisciplinary Research Agenda for the Common Foreign and Security Policy", to appear in the European Foreign Affairs Review Vol. 25, Issue 2 (July 2020).
+
+In case you find this dataset and toolbox helpful for your research (we hope so!), please mention the above paper.
